@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Web3Context from "./context/Web3Context";
+import Sidebar from "./components/sidebar/Sidebar";
+import Wallet from "./wallet/Wallet.js";
 
 function App() {
+  const [web3State, setWeb3State] = useState({
+    Account: null,
+    provider: null,
+    contractSigner: null,
+    contractProvider: null,
+    chainId: null,
+  });
+
+  const updateWeb3State = (newState) => {
+    setWeb3State((prevState) => ({ ...prevState, ...newState }));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Web3Context.Provider value={{ ...web3State, updateWeb3State }}>
+      {/* <Wallet /> */}
+      <Sidebar />
+    </Web3Context.Provider>
   );
 }
 

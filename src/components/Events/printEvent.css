@@ -1,0 +1,168 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #4a4a4a;
+  }
+  
+  /* Event list styling */
+  .event-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+  }
+  
+  .event-card {
+    background-color: #fefdfe;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .event-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+  .event-card button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .event-card button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Event details section styling */
+  /* Overlay for blur effect */
+/* Overlay for blur effect */
+
+
+.event-card h3 {
+  margin: 5px 0;
+  font-size: 20px;
+  color: #333333; /* Dark color for good contrast */
+}
+
+.event-card h3:first-of-type {
+  color: #4CAF50; /* Event name in a prominent color */
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.event-card h3:nth-of-type(2) {
+  font-size: 18px;
+  color: #555555; /* Softer color for description */
+}
+
+.event-card p {
+  font-size: 16px;
+  color: green; /* Distinct color for price */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Hover effect */
+.event-card:hover {
+  transform: scale(1.02); /* Slight scale effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Soft shadow */
+}
+
+
+.event-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(5px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; 
+}
+
+.event-details-modal {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  text-align: center;
+}
+
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  color: #333;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.event-details-modal p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #444; 
+}
+
+.event-details-modal strong {
+  color: #2c3e50; 
+}
+
+.event-details-modal p strong {
+  font-weight: bold;
+}
+
+.close-button:hover {
+  color: #e74c3c; 
+}
+
+  
+  @media (max-width: 768px) {
+    .event-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .event-card {
+      width: 80%;
+    }
+  
+    .event-details {
+      width: 90%;
+    }
+  }
+  

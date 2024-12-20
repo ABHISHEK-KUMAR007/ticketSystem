@@ -1,24 +1,19 @@
 /* Import Google font - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
-/* General Styling */
 main {
-  background: #480e20;
+  background: #6610f2;
 }
-
 .container {
   max-width: 1300px;
   width: 100%;
   margin: 0 auto;
 }
-
 header {
   position: fixed;
   top: 0;
@@ -26,99 +21,40 @@ header {
   width: 100%;
   z-index: 1000;
 }
-
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 60px;
 }
-
 .nav_logo {
   padding: 10px 0;
-  font-size: 24px;
-  font-weight: bold;
-  color: rgb(12, 12, 12); /* Custom color */
-  text-transform: uppercase;
+}
+.menu_items {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+a {
+  color: #fff;
+  text-decoration: none;
 }
 
-/* General Button Styling */
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Connect Wallet Button Styling */
-button {
-  background-color: #3498db; /* Base color */
-  color: white;
-  border: 2px solid transparent;
-}
-
-button:hover {
-  background-color: transparent;
-  color: #3498db;
-  border: 2px solid #3498db;
-}
-
-.nav button {
-  margin-left: auto;
-  background-color: #0b184e;
-}
-
-.nav button:hover {
-  background-color: transparent;
-  color: #2ecc71;
-  border: 2px solid #2ecc71;
-}
-
-/* Hero Section Buttons Styling */
-.buttons .btn {
-  background-color: #e74c3c;
-  color: white;
-  border-radius: 30px;
-  padding: 10px 25px;
-  border: 2px solid transparent;
-  margin-right: 15px;
-}
-
-.buttons .btn:hover {
-  background-color: transparent;
-  color: #e74c3c;
-  border: 2px solid #e74c3c;
-}
-
-/* Additional Button Style for Responsiveness */
-@media screen and (max-width: 768px) {
-  .buttons .btn {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-}
-
-/* Hero Section Styling */
+/* Hero */
 .hero {
   position: relative;
   min-height: 100vh;
   width: 100%;
-  /* background: url(images/bg-dot.png), url(images/bg-dot.png), url(images/bg-round.png), url(images/bg-tree.png); */
   background: url(images/bg-dot.png), url(images/bg-dot.png), url(images/bg-round.png), url(images/bg-tree.png);
   background-position: 10px 10px, bottom 215px right 10px, left 55% top -1%, left 45% bottom -1px;
   background-repeat: no-repeat;
 }
-
 .curveImg {
   position: absolute;
   bottom: 0;
   width: 100%;
   pointer-events: none;
 }
-
 .hero .row {
   display: flex;
   align-items: center;
@@ -129,27 +65,22 @@ button:hover {
   gap: 30px;
   justify-content: space-between;
 }
-
 .hero .row h2,
 .hero .row p {
   color: #fff;
 }
-
 .hero .row h2 {
   font-size: 36px;
   margin-bottom: 16px;
 }
-
 .hero .column {
   width: 50%;
 }
-
 .buttons {
   display: flex;
   margin-top: 25px;
   gap: 10px;
 }
-
 .btn {
   padding: 14px 26px;
   background: #fff;
@@ -158,59 +89,83 @@ button:hover {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .btn:last-child {
   border: 2px solid #fff;
   background: transparent;
   color: #fff;
 }
-
 .btn:last-child:hover {
   background-color: #fff;
   color: #333;
 }
-
 .hero_img {
   width: 100%;
   z-index: 10;
   position: relative;
 }
+#menu_toggle {
+  display: none;
+}
 
-/* Media Queries for Responsive Design */
-@media (max-width: 860px) {
+/* Reponsive */
+@media (width < 860px) {
+  #menu_toggle {
+    display: block;
+  }
   .nav {
     padding: 0 20px;
     background-color: #fff;
   }
 
+  .menu_items {
+    position: fixed;
+    top: 0;
+    width: 260px;
+    background-color: #fff;
+    height: 100%;
+    left: -100%;
+    padding: 50px 30px 30px;
+    flex-direction: column;
+    transition: all 0.5s ease;
+  }
+  .showMenu .menu_items {
+    left: 0;
+  }
+  a {
+    color: #333;
+  }
+  #menu_toggle {
+    width: 20px;
+    cursor: pointer;
+  }
+  .menu_items #menu_toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
   .hero {
     padding-top: 130px;
   }
-
   .hero .row {
     flex-direction: column;
     padding: 0 20px;
     justify-content: center;
   }
-
   .hero .row .column {
     width: 100%;
   }
 }
 
-@media (max-width: 600px) {
+@media (width < 600px) {
   .hero {
     padding-top: 80px;
   }
-
   .hero .row h2 {
     font-size: 26px;
   }
-
   .buttons {
     justify-content: center;
   }
-
   .btn {
     padding: 10px 16px;
   }
